@@ -10,7 +10,8 @@ def create_user():
     #
     # # Định dạng ngày thành chuỗi theo định dạng '%d.%m.%Y'
     # formatted_date = current_date.strftime('%d.%m.%Y')
-    os.system(f"pytest src/check_response/Get_users.py --html=report/$ABC/Create_user.html")
+    command = 'pytest src/check_response/Create_user.py --html="report/quy/Create_user.html"'
+    os.system(command)
     messagebox.showinfo("Task Completed", "Task completed!")
 
 def delete_user():
