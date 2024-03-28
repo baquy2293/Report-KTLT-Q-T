@@ -1,5 +1,0 @@
-requests
-pytest
-pytest-html
-sqlmap
-tkinter

@@ -10,12 +10,12 @@ def create_user():
     #
     # # Định dạng ngày thành chuỗi theo định dạng '%d.%m.%Y'
     # formatted_date = current_date.strftime('%d.%m.%Y')
-    command = 'pytest src/check_response/Create_user.py --html="report/quy/Create_user.html"'
+    command = 'pytest src/check_response/Create_user.py --html="report/Create_user.html"'
     os.system(command)
     messagebox.showinfo("Task Completed", "Task completed!")
 
 def delete_user():
-    os.system("pytest Mã Nguồn/src/check_response/Delete_user.py --html=report/$(date +%d.%m.%Y)/Delete_user.html")
+    os.system("pytest src/check_response/Delete_user.py --html=report/Delete_user.html")
     messagebox.showinfo("Task Completed", "Task completed!")
 
 def get_user():
