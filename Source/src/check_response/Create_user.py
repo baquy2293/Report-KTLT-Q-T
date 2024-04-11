@@ -1,8 +1,8 @@
 import requests
-import datetime
+from datetime import datetime
 
 
-# Trường hợp kiểm thử để xác minh rằng URL điểm cuối API là chính xác và có thể truy cập được
+# Test case to verify that the API endpoint URL is correct and accessible
 def test_api_endpoint_accessible():
     data = {"name": "NGUYEN VAN A", "job": "student"}
     response = requests.post("https://reqres.in/api/users", data=data)
@@ -31,10 +31,10 @@ def test_api_returns_expected_data():
     data = {
     "name": "tbq",
     "job": "student"
-}
+    }
     response = requests.post("https://reqres.in/api/users", data=data)
 
-    format = "%Y-%m-%dT%H:%M:%S.%fZ"
+    format = "%Y-%m-%d %H:%M:%S.%f"
 
     print(response.json())
     assert response.json()["name"] == data["name"]
@@ -43,7 +43,7 @@ def test_api_returns_expected_data():
     print("job : OK")
     assert response.json()["id"].isdigit() == True
     print("id : OK")
-    assert datetime.strptime(response.json()["createdAt"], format), "Dateformat not as expect"
+    assert datetime.strptime(response.json()["createdAt"], "%Y-%m-%dT%H:%M:%S.%fZ"), "Dateformat not as expect"
     print("createdAt : OK")
 
 

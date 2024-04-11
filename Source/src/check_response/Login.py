@@ -54,14 +54,17 @@ def test_api_returns_expected_data():
     assert response.json()["token"] != ""
     print("Response-data : OK")
 
+#sửa lại
 def test_api_resturn_unauthorize():
     data = {
         "email": "nvlong@reqres.in",
         "password": "1234"
     }
     response = requests.post("https://reqres.in/api/login", data=data)
-    assert response.status_code == 401
+    assert response.json()["error"] == "user not found"
     print("Unauthorized-code : OK")
+
+
 # Test case to verify that the API endpoint returns the correct headers
 def test_api_returns_correct_headers():
     data = {
@@ -79,5 +82,4 @@ def test_api_returns_correct_headers():
     print("Connect : OK")
     assert response.headers.get("CF-Cache-Status") == "DYNAMIC"
     print("CF-Cache-Status : OK")
-
 

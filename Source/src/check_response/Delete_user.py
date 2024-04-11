@@ -8,14 +8,14 @@ def test_api_endpoint_accessible():
     assert response.status_code == 204
     print("Status-code : OK")
 
-# Test case to verify that the API endpoint returns the expected response format
+# Xoá hàm này
 def test_api_returns_expected_format():
     response = requests.delete("https://reqres.in/api/users/3")
     assert response.headers.get("Content-Type") == "application/json; charset=utf-8" , "Wrong format response"
     print("Content-Type : OK")
 
 
-# Test case to verify that the API endpoint returns the expected data according to the API documentation
+# Xoá hàm này
 def test_api_returns_expected_data():
     data = requests.get("https://reqres.in/api/users/3").json()["data"]
     response = requests.delete("https://reqres.in/api/users/3")
@@ -41,5 +41,4 @@ def test_api_returns_correct_headers():
     print("Connect : OK")
     assert response.headers.get("CF-Cache-Status") == "DYNAMIC"
     print("CF-Cache-Status : OK")
-
 

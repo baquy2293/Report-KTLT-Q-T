@@ -73,4 +73,3 @@ def test_api_returns_correct_headers():
     assert response.headers.get("CF-Cache-Status") == "DYNAMIC"
     print("CF-Cache-Status : OK")
 
-

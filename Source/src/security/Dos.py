@@ -1,6 +1,7 @@
 import requests
 import threading
 
+
 def test_dos_attack():
     # Thiết lập số lượng yêu cầu tối đa
     MAX_REQUESTS = 10000

@@ -1,5 +1,5 @@
 import requests
-import datetime
+from datetime import datetime
 
 # Test case to verify that the API endpoint URL is correct and accessible
 
@@ -22,13 +22,14 @@ def test_api_returns_expected_format():
     print("Content-Type : OK")
 
 # Test case to verify that the API endpoint returns the expected data according to the API documentation
+# sửa lại
 def test_api_returns_expected_data():
     data = {"name": "NGUYEN THE U", "job": "student"}
     response = requests.put("https://reqres.in/api/users/3", data=data)
 
     format = "%Y-%m-%dT%H:%M:%S.%fZ"
-    assert response.json()["data"]["name"] == data["name"]
-    assert response.json()["data"]["job"] == data["job"]
+    assert response.json()["name"] == data["name"]
+    assert response.json()["job"] == data["job"]
     assert datetime.strptime(response.json()["updatedAt"], format), "Dateformat not as expect"
     print("name : OK")
     print("job : OK")
@@ -51,6 +52,5 @@ def test_api_returns_correct_headers():
     print("Connect : OK")
     assert response.headers.get("CF-Cache-Status") == "DYNAMIC"
     print("CF-Cache-Status : OK")
-
 
 
